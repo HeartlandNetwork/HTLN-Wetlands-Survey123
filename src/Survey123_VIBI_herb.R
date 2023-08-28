@@ -71,8 +71,9 @@ glimpse(Access_data)
 
 
 write_csv(Access_data, Access_data$Outfile[1])
-  
 
+writexl::write_xlsx(Access_data, "Load_VIBI_herb.xlsx")
+  
 
 
 
