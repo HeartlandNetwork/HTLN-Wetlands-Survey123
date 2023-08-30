@@ -56,7 +56,7 @@ Access_data <- Access_data |>
     My_timestamp = as.character(My_timestamp),
     My_timestamp = str_replace_all(My_timestamp, " ", "_"),
     My_timestamp = str_replace_all(My_timestamp, ":", ""),
-    Outfile = str_c("VIBI_herb_", My_timestamp,".csv")
+    Timestamp = str_c("VIBI_herb_", My_timestamp)
   ) 
 
 glimpse(Access_data)
@@ -65,12 +65,12 @@ glimpse(Access_data)
 
 Access_data <- Access_data |>
   select(EventID, FeatureID, LocationID, Species, Module,
-         CoverClass, CoverClassAll, EditDate, Outfile )
+         CoverClass, CoverClassAll, EditDate, Timestamp )
 
 glimpse(Access_data)
 
 
-write_csv(Access_data, Access_data$Outfile[1])
+#write_csv(Access_data, Access_data$Outfile[1])
 
 writexl::write_xlsx(Access_data, "Load_VIBI_herb.xlsx")
   
